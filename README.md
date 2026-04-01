@@ -103,10 +103,10 @@ make C2_IP=10.0.0.5 C2_PORT=443 ENDPOINT=/api/v2/telemetry
 
 ```bash
 python3 receiver.py [--port PORT] [--token-file PATH] [--endpoint URI]
-```
  --port        80              HTTP receiver listening port
  --token-file  auth_token.key  Auth token file (generated during build)
  --endpoint    /l              URI path (must match the build ENDPOINT)
+```
 
 Important: The auth_token.key generated during `make` must be accessible to the receiver. Without it, the receiver accepts uploads from any source (insecure).
 
