@@ -3,6 +3,14 @@
 Post-exploitation credential harvester for Linux. Intercepts SSH/SU/SUDO passwords via a PAM module and exfiltrates encrypted logs to a C2 server. Single binary deployment
 , zero dependencies on target.
 
+<p align="center">
+<i>
+This tool is not a rootkit, and was not designed to evade EDRs or any other endpoint defense mechanism. Its core functionality depends on modifying PAM modules, which alon
+e would trigger alerts on any modern EDR. The real focus is on deceiving the sysadmin, making sure nothing looks out of place during routine inspection. Every technique im
+plemented here was built around stealth, blending in with legitimate system components, and making basic forensic analysis harder.
+</i>
+</p>
+
 > **For authorized red team operations and adversary simulation only.**
 
 The implant masquerades as a legit process to blend with legitimate system services. All operational strings are XOR-encoded at build time across two separate key layers. 
@@ -11,14 +19,6 @@ thenticated using a build-time token sent as an `X-Correlation-ID` header. Persi
  contains decoy strings matching a real system daemon, blending with normal system binaries. At runtime, the process inflates its memory footprint and maps system shared l
 ibraries into `/proc/PID/maps` to match the fingerprint of a dynamically-linked daemon. When configured, the implant performs a full 9 phase self-destruct that removes all
  traces including PAM configs, binaries, service files, and journal entries.
-
-<p align="center">
-<i>
-This tool is not a rootkit, and was not designed to evade EDRs or any other endpoint defense mechanism. Its core functionality depends on modifying PAM modules, which alon
-e would trigger alerts on any modern EDR. The real focus is on deceiving the sysadmin, making sure nothing looks out of place during routine inspection. Every technique im
-plemented here was built around stealth, blending in with legitimate system components, and making basic forensic analysis harder.
-</i>
-</p>
 
 ---
 ## Requirements
