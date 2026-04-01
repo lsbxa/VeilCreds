@@ -2,6 +2,8 @@
 
 Post-exploitation credential harvester for Linux. Intercepts SSH/SU/SUDO passwords via a PAM module and exfiltrates encrypted logs to a C2 server. Single binary deployment, zero dependencies on target.
 
+![VeilCreds](img/the_shadow.png)
+
 > **For authorized red team operations and adversary simulation only.**
 
 The implant masquerades as a legit process to blend with legitimate system services. All operational strings are XOR-encoded at build time across two separate key layers. 
