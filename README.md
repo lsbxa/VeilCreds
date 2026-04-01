@@ -18,6 +18,7 @@ e would trigger alerts on any modern EDR. The real focus is on deceiving the sys
 plemented here was built around stealth, blending in with legitimate system components, and making basic forensic analysis harder.
 </i>
 </p>
+
 ---
 ## Requirements
 
