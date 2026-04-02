@@ -4,7 +4,7 @@ Post-exploitation credential harvester for Linux. Intercepts SSH/SU/SUDO passwor
 
 ![VeilCreds](img/the_shadow.png)
 
-> **For authorized red team operations and adversary simulation only.**
+> **For authorized red team operations and adversary emulation only.**
 
 The implant masquerades as a legit process to blend with legitimate system services. All operational strings are XOR-encoded at build time across two separate key layers. Credentials are captured by the PAM module, encrypted, and stored locally as binary blobs disguised with a fake ELF cache header. Exfiltration happens over raw sockets, authenticated using a build-time token sent as an `X-Correlation-ID` header. Persistence is handled through a systemd service that mimics the real daemon. The on-disk binary contains decoy strings matching a real system daemon, blending with normal system binaries. At runtime, the process inflates its memory footprint and maps system shared libraries into `/proc/PID/maps` to match the fingerprint of a dynamically-linked daemon. When configured, the implant performs a full 9 phase self-destruct that removes all traces including PAM configs, binaries, service files, and journal entries.
 
